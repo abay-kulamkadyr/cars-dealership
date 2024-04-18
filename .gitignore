@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Django app migrations
-/server/djangoapp/migrations/
+server/djangoapp/migrations/
