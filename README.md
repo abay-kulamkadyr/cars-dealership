@@ -27,6 +27,8 @@ This project is the culmination of the IBM Full Stack Developer Professional Cer
     - Tested the application locally and deployed on Kubernetes.
 
 ## Solution Architecture
+
+![Architecture](./assets/project_architecture.png)
 The project utilizes multiple technologies:
 - Django for the main web application.
 - SQLite for storing Car Make and Car Model data.
