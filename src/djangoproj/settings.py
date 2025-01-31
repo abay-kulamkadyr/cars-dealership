@@ -28,7 +28,7 @@ SECRET_KEY =\
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost',
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
                  'https://kulamkadyrab-8000.' +
                  'theiadockernext-0-labs-prod-theiak8s-4-tor01.' +
                  'proxy.cognitiveclass.ai']
