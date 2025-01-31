@@ -72,9 +72,6 @@ A containerized full-stack solution managing car dealerships, user reviews, and 
 
 ---
 
-
----
-
 ## Setup & Usage
 
 ### 1. **Node + Mongo**  
