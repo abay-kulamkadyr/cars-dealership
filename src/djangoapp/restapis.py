@@ -6,7 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 backend_url = os.getenv('backend_url', default="http://node_api:3030")
-sentiment_analyzer_url = os.getenv('sentiment_analyzer_url', default="http://sentiment_analyzer:5000")
+sentiment_analyzer_url = os.getenv(
+    'sentiment_analyzer_url', default="http://sentiment_analyzer:5000")
+
 
 def get_request(endpoint, **kwargs):
     params = ""
