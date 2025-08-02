@@ -1,5 +1,3 @@
-# cars_dealership_webapplication/src/Dockerfile
-
 # --- STAGE 1: Build the frontend assets using a Node.js image ---
 FROM node:20.12.2-slim AS node_builder
 

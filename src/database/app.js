@@ -26,16 +26,17 @@ try {
   Dealerships.deleteMany({}).then(()=>{
     Dealerships.insertMany(dealerships_data.dealerships);
   });
-
 } catch (error) {
   res.status(500).json({ error: 'Error fetching documents' });
 }
 
 
+// Express route to home
 app.get('/', async (req, res) => {
     res.send("Welcome to the Mongoose API");
 });
 
+// Express route to fetch all reviews
 app.get('/fetchReviews', async (req, res) => {
   try {
     const documents = await Reviews.find();
@@ -45,6 +46,7 @@ app.get('/fetchReviews', async (req, res) => {
   }
 });
 
+// Express route to fetch reviews by a particular dealer
 app.get('/fetchReviews/dealer/:id', async (req, res) => {
   try {
     const documents = await Reviews.find({dealership: req.params.id});
@@ -64,6 +66,7 @@ app.get('/fetchDealers', async (req, res) => {
     }
 });
 
+// Express route to fetch Dealers by a particular state
 app.get('/fetchDealers/:state', async (req, res) => {
     try {
         const documents = await Dealerships.find({state: req.params.state});
