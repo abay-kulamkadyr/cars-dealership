@@ -1,0 +1,58 @@
+version: '3.9'
+
+services:
+  # The Django web application
+  django_app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: django_app_container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo_db
+      - node_api
+      - sentiment_analyzer
+    networks:
+      - my_dealership_network
+
+  # The Node.js API
+  node_api:
+    build:
+      context: ./database
+      dockerfile: ./Dockerfile
+    container_name: node_api_container
+    ports:
+      - "3030:3030"
+    depends_on:
+      - mongo_db
+    networks:
+      - my_dealership_network
+
+  # The MongoDB database
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - my_dealership_network
+
+  sentiment_analyzer:
+    build:
+      context: ./sentiment-analyzer
+      dockerfile: ./Dockerfile
+    container_name: sentiment_analyzer_container
+    ports:
+      - "5000:5000"
+    networks:
+      - my_dealership_network
+
+networks:
+  my_dealership_network:
+    driver: bridge
+
+volumes:
+  mongo_data: {}
