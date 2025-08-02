@@ -73,32 +73,6 @@ A containerized full-stack solution managing car dealerships, user reviews, and 
 ---
 
 ## Setup & Usage
-
-### 1. **Node + Mongo**  
-- `cd database/`  
-- `docker-compose up -d` (starts MongoDB + Node server at `:3030`)
-
-### 2. **Django**  
-- Install dependencies: `pip install -r requirements.txt`  
-- `python manage.py migrate`  
-- `python manage.py runserver` (runs on `:8000` by default)  
-*(Alternatively, build & run the Django Dockerfile.)*
-
-### 3. **React**  
-- `cd frontend/`  
-- `npm install && npm start`  
-- Access the SPA typically on `:3000`
-
-### 4. **Flask**  
-- Deployed to **IBM Cloud Code Engine**. Locally, you can run:
-  ```bash
-  cd djangoapp/microservices
-  docker build -t flask-sentiment .
-  docker run -p 5050:5050 flask-sentiment
-
-- Update sentiment_analyzer_url in .env or Django’s settings if hosting externally.
-
-## Docker Deployments
-    Node + Mongo: docker-compose.yml in database/.
-    Django: docker build -t djangoapp . && docker run -p 8000:8000 djangoapp.
-    Flask: Deployed to IBM Cloud Code Engine. Locally, docker build ... & docker run ....
+```bash
+docker compose up -d
+```
